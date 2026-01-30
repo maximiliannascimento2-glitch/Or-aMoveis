@@ -1346,15 +1346,17 @@
 
         const root = ReactDOM.createRoot(document.getElementById('root'));
         root.render(<App />);
-    </script>
-       if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js')
-            .then(reg => console.log('Service Worker registrado!', reg.scope))
-            .catch(err => console.log('Erro ao registrar o SW:', err));
-        });
-      }
-    </script>
-</body>
-</html>
+</script> {/* Feche o Babel aqui */}
+
+<script> // Abra um script normal para o SW
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js')
+        .then(reg => console.log('SW OK'))
+        .catch(err => console.log('SW Erro', err));
+    });
+  }
+</script>
+</body></html>
+
 
